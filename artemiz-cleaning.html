@@ -40,7 +40,7 @@ nav {
 .hero-stars { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(1.5px 1.5px at 15% 20%, rgba(255,61,139,0.18) 0%, transparent 100%), radial-gradient(1px 1px at 80% 15%, rgba(255,61,139,0.12) 0%, transparent 100%), radial-gradient(1.5px 1.5px at 70% 75%, rgba(255,61,139,0.15) 0%, transparent 100%), radial-gradient(2px 2px at 90% 50%, rgba(255,61,139,0.25) 0%, transparent 100%); }
 .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 820px; animation: fadeUp 1s ease both; }
 .hero-logo { width: 240px; margin-bottom: 40px;}
-.hero-tagline { font-family: 'DM Sans', sans-serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 300; color: var(--charcoal); line-height: 1.15; margin-bottom: 20px; }
+.hero-tagline { font-family: 'DM Sans', sans-serif; font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 300; color: var(--charcoal); line-height: 1.2; margin-bottom: 20px; }
 .hero-tagline span { color: var(--pink); font-style: italic; }
 .hero-sub { font-size: 13px; color: var(--gray); letter-spacing: 0.12em; margin-bottom: 44px; font-weight: 300; text-transform: uppercase; }
 .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
@@ -64,16 +64,78 @@ section { padding: 100px 48px; }
 .about-text p { font-size: 15px; line-height: 1.85; color: var(--gray); margin-bottom: 18px; font-weight: 300; }
 .about-text strong { color: var(--charcoal); font-weight: 600; }
 .womens-badge { display: inline-flex; align-items: center; gap: 10px; border: 1.5px solid var(--pink); border-radius: 2px; padding: 12px 20px; margin-top: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink); }
-
 .services-section { background: var(--off-white); }
 .services-inner { max-width: 1200px; margin: 0 auto; }
 .services-header { margin-bottom: 60px; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
-.service-card { background: var(--white); padding: 40px 32px; border: 1px solid rgba(0,0,0,0.07); transition: background 0.3s, border-color 0.3s; }
-.service-card:hover { background: rgba(255,61,139,0.08); border-color: rgba(255,61,139,0.3); }
-.service-icon { font-size: 28px; margin-bottom: 18px; display: block; }
-.service-card h3 { font-family: 'DM Sans', sans-serif; font-size: 1.35rem; font-weight: 600; color: var(--charcoal); margin-bottom: 10px; }
-.service-card p { font-size: 14px; color: var(--gray); line-height: 1.7; font-weight: 300; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.service-card {
+  background: var(--white);
+  padding: 36px 32px;
+  border: 1px solid rgba(0,0,0,0.07);
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.service-card:hover {
+  background: var(--pink-pale);
+  border-color: rgba(254,72,155,0.3);
+  transform: translateY(-2px);
+}
+.svc-card-num {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--pink);
+}
+.svc-card-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.2;
+}
+.svc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+.svc-list li {
+  font-size: 13px;
+  color: var(--gray);
+  font-weight: 300;
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+.svc-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 1.5px;
+  background: var(--pink);
+}
+.svc-card-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pink);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+.service-card:hover .svc-card-link { color: var(--pink-deep); }
+ 
+@media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
 
 .why-section { background: var(--off-white); }
 .why-inner { max-width: 1200px; margin: 0 auto; }
@@ -175,9 +237,9 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
 <body>
 
 <nav>
-  <div class="nav-logo">
-    <img src="images/pinklogo.png" alt="Artemiz Cleaning Services" style="transform: scale(1.8); border-radius: 100%;">
-  </div>
+<div class="nav-logo" style="padding-top: 8px;">
+    <img src="images/pinklogo.png" alt="Artemiz Cleaning Services" style="transform: scale(2.8); clip-path: inset(0 0 20% 0);">
+</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -185,16 +247,29 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
     <li><a href="#areas">Areas</a></li>
     <li><a href="#quote">Contact</a></li>
   </ul>
-  <a href="#quote" class="nav-cta">Get a Quote</a>
+  <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+    <a href="tel:+16092028540" style="color:white; text-decoration:none; font-size:13px; font-weight:600; letter-spacing:0.08em; display:flex; align-items:center; gap:6px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.61 16.92z"/></svg>
+      (609) 202-8540
+    </a>
+    <a href="#quote" class="nav-cta">Get a Quote</a>
+  </div>
 </nav>
 
 <section class="hero" id="home">
   <div class="hero-glow"></div>
   <div class="hero-stars"></div>
   <div class="hero-content">
-    <img class="hero-logo" src="images/clear.png" style="transform: scale(1.7);">
-    <h1 class="hero-tagline"><span>POWERED BY WOMEN</span><br>DRIVEN BY EXCELLENCE.</h1>
-    <p class="hero-sub">Powered by Women &nbsp;&middot;&nbsp; Driven by Excellence &nbsp;&middot;&nbsp; Satisfaction Guaranteed</p>
+    <img class="hero-logo" src="images/clear.png" style="border-radius: 50%; transform: scale(1.9);">
+    <h1 class="hero-tagline">NJ's Women-Led Commercial Cleaning Company<br><span>Trusted by Businesses Across the Region</span></h1>
+    <p class="hero-sub">Fully Insured &nbsp;&middot;&nbsp; Satisfaction Guaranteed &nbsp;&middot;&nbsp; Women-Owned &amp; Operated</p>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:4px; margin-bottom:28px;">
+      <span style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--pink);">Call Today</span>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.61 16.92z"/></svg>
+        <a href="tel:+16092028540" style="color:var(--charcoal); text-decoration:none; font-size:16px; font-weight:500; letter-spacing:0.06em;">(609) 202-8540</a>
+      </div>
+    </div>
     <div class="hero-btns">
       <a href="#quote" class="btn-primary">Request a Free Quote</a>
       <a href="#services" class="btn-outline">Our Services</a>
@@ -223,7 +298,7 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
       <p>Artemiz Cleaning Services is a <strong>women-owned and women-powered</strong> commercial cleaning company founded on one belief: a clean space reflects the pride of the people inside it.</p>
       <p>Just as Artemis pursued her goals with precision and purpose, our team brings that same <strong>focused dedication</strong> to every space we clean — from offices to retail to medical facilities.</p>
       <p>We're new, hungry, and <strong>personally invested</strong> in every job. You're not a number here — you're a partner.</p>
-      <div class="womens-badge">&#9792; Women-Owned &amp; Operated</div>
+      <div class="womens-badge">Women-Owned Business</div>
     </div>
   </div>
 </section>
@@ -232,15 +307,77 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
   <div class="services-inner">
     <div class="services-header reveal">
       <p class="section-label">What We Clean</p>
-      <h2 class="section-title light">Commercial Cleaning,<br>Done Right.</h2>
+      <h2 class="section-title light">We Specialize in Cleaning Services<br>for New Jersey &amp; Pennsylvania Businesses</h2>
+      <p style="font-size:14px; color:var(--gray); font-weight:300; margin-top:16px;">Click a service to learn more about how we clean.</p>
     </div>
-    <div class="services-grid">
-      <div class="service-card reveal"><span class="service-icon">&#127970;</span><h3>Office &amp; Corporate</h3><p>Daily, weekly, or monthly cleaning for offices of any size. Desks, common areas, restrooms, and kitchens — spotless every time.</p></div>
-      <div class="service-card reveal"><span class="service-icon">&#127973;</span><h3>Medical &amp; Dental</h3><p>High-standard sanitation for healthcare environments. We understand cleanliness where health is on the line.</p></div>
-      <div class="service-card reveal"><span class="service-icon">&#128717;</span><h3>Retail &amp; Storefronts</h3><p>Keep your customer-facing spaces pristine. We work around your hours so your business never skips a beat.</p></div>
-      <div class="service-card reveal"><span class="service-icon">&#127959;</span><h3>Post-Construction</h3><p>Dust, debris, and residue cleared after renovations or new builds — ready for move-in or opening day.</p></div>
-      <div class="service-card reveal"><span class="service-icon">&#10024;</span><h3>Deep Cleaning</h3><p>Top-to-bottom cleaning for spaces that need a reset. Perfect for onboarding a new location or seasonal refreshes.</p></div>
-      <div class="service-card reveal"><span class="service-icon">&#128203;</span><h3>Custom Contracts</h3><p>Need something specific? We'll build a plan around your schedule, space, and budget — no cookie-cutter packages.</p></div>
+    <div class="services-grid reveal">
+ 
+      <div class="service-card" onclick="openSvcModal('office')">
+        <div class="svc-card-num">01</div>
+        <h3 class="svc-card-title">Office &amp; Corporate</h3>
+        <ul class="svc-list">
+          <li>Desks, surfaces &amp; high-touch areas disinfected</li>
+          <li>Restrooms and kitchens deep-cleaned</li>
+          <li>Daily, weekly, or monthly schedules</li>
+        </ul>
+        <span class="svc-card-link">Learn more &rarr;</span>
+      </div>
+ 
+      <div class="service-card" onclick="openSvcModal('medical')">
+        <div class="svc-card-num">02</div>
+        <h3 class="svc-card-title">Medical &amp; Dental</h3>
+        <ul class="svc-list">
+          <li>Hospital-grade disinfectants throughout</li>
+          <li>Exam rooms, waiting areas &amp; restrooms</li>
+          <li>OSHA-compliant waste handling</li>
+        </ul>
+        <span class="svc-card-link">Learn more &rarr;</span>
+      </div>
+ 
+      <div class="service-card" onclick="openSvcModal('retail')">
+        <div class="svc-card-num">03</div>
+        <h3 class="svc-card-title">Retail &amp; Storefronts</h3>
+        <ul class="svc-list">
+          <li>Floors, fixtures &amp; displays spotless</li>
+          <li>Glass, fitting rooms &amp; checkout sanitized</li>
+          <li>Scheduled around your business hours</li>
+        </ul>
+        <span class="svc-card-link">Learn more &rarr;</span>
+      </div>
+ 
+      <div class="service-card" onclick="openSvcModal('construction')">
+        <div class="svc-card-num">04</div>
+        <h3 class="svc-card-title">Post-Construction</h3>
+        <ul class="svc-list">
+          <li>Dust &amp; debris removed from all surfaces</li>
+          <li>Windows, floors &amp; fixtures detailed</li>
+          <li>Move-in or grand-opening ready</li>
+        </ul>
+        <span class="svc-card-link">Learn more &rarr;</span>
+      </div>
+ 
+      <div class="service-card" onclick="openSvcModal('deep')">
+        <div class="svc-card-num">05</div>
+        <h3 class="svc-card-title">Deep Cleaning</h3>
+        <ul class="svc-list">
+          <li>Behind furniture, vents &amp; baseboards</li>
+          <li>Grout, fixtures &amp; appliances detailed</li>
+          <li>Full reset — top to bottom</li>
+        </ul>
+        <span class="svc-card-link">Learn more &rarr;</span>
+      </div>
+ 
+      <div class="service-card" onclick="openSvcModal('custom')">
+        <div class="svc-card-num">06</div>
+        <h3 class="svc-card-title">Custom Contracts</h3>
+        <ul class="svc-list">
+          <li>Scope &amp; checklist built around your needs</li>
+          <li>Single site or multi-location coverage</li>
+          <li>Transparent pricing, no hidden fees</li>
+        </ul>
+        <span class="svc-card-link">Learn more &rarr;</span>
+      </div>
+ 
     </div>
   </div>
 </section>
@@ -299,13 +436,16 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
           <div class="area-meta">
             <div class="area-meta-item">
               <svg class="area-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.61 16.92z"/></svg>
-              <a href="tel:+18565550000">(609) 202-8540</a>
+              <a href="tel:+16092028540">(609) 202-8540</a>
             </div>
             <div class="area-meta-item">
               <svg class="area-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>Mon - Fri: <strong style="color: var(--charcoal); font-weight: 500;">9:00 AM – 5:00 PM</strong></span>
+              <span>Today's hours: <strong style="color: var(--charcoal); font-weight: 500;">9:00 AM – 5:00 PM</strong></span>
             </div>
-            
+            <div class="area-meta-item">
+              <svg class="area-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Greater metro area &amp; surrounding counties</span>
+            </div>
           </div>
 
           <a href="#quote" class="btn-primary" style="text-align:center;">Get a Free Quote &rarr;</a>
@@ -325,8 +465,8 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
         <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith" required></div>
         <div class="form-group"><label>Business Name</label><input type="text" placeholder="Acme Corp" required></div>
         <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@company.com" required></div>
-        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(555) 000-0000"></div>
-        <div class="form-group"><label>Type of Space</label><select required><option value="" disabled selected>Select space type</option><option>Office / Corporate</option><option>Medical / Dental</option><option>Retail / Storefront</option><option>Post-Construction</option><option>Warehouse / Industrial</option><option>Other</option></select></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(609) 202-8540"></div>
+        <div class="form-group"><label>Type of Space</label><select required><option value="" disabled selected>Select space type</option><option>Office / Corporate</option><option>Medical / Dental</option><option>Retail / Storefront</option><option>Post-Construction</option><option>Other</option></select></div>
         <div class="form-group"><label>Approximate Square Footage</label><select><option value="" disabled selected>Select size</option><option>Under 1,000 sq ft</option><option>1,000 – 3,000 sq ft</option><option>3,000 – 7,500 sq ft</option><option>7,500 – 15,000 sq ft</option><option>15,000+ sq ft</option></select></div>
         <div class="form-group"><label>Cleaning Frequency</label><select><option value="" disabled selected>How often?</option><option>One-time / Deep Clean</option><option>Weekly</option><option>Bi-Weekly</option><option>Monthly</option><option>Custom Schedule</option></select></div>
         <div class="form-group"><label>Service Area / City</label><input type="text" placeholder="e.g. Cherry Hill, NJ"></div>
@@ -346,8 +486,8 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="images/pinkartemiz.jpg" alt="Artemiz Cleaning Services">
-      <p>Powered by Women, Driven by Excellence. Commercial cleaning services delivering spotless results every time.</p>
+      <img src="images/pinklogo.png" alt="Artemiz Cleaning Services" style="transform: scale(1.7); clip-path: inset(15% 15% 20% 15%);">
+      <p>Powered by Women, Driven by Excellence. Commercial Cleaning Services.</p>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
@@ -357,14 +497,14 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
       <h4>Contact</h4>
       <ul>
         <li><a href="mailto:info@artemizclean.com">info@artemizclean.com</a></li>
-        <li><a href="tel:+15550000000">(555) 000-0000</a></li>
+        <li><a href="tel:+16092028540">(609) 202-8540</a></li>
         <li>Serving the Greater<br>Metropolitan Area</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2025 Artemiz Cleaning Services. All rights reserved.</p>
-    <div class="women-tag">&#9792; Women-Owned Business</div>
+    <p>&copy; 2026 Artemiz Clean LLC. All rights reserved.</p>
+    <div class="women-tag">Women-Owned Business</div>
   </div>
 </footer>
 
@@ -396,7 +536,136 @@ function closeAreasModal() {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeAreasModal();
 });
+
+
+const svcData = {
+  office: {
+    label: 'Office & Corporate',
+    title: 'How We Clean Offices',
+    body: `<p style="margin-bottom:16px;">Our office cleaning process is built around consistency and discretion. We work around your schedule — early morning, evenings, or weekends — so your team always walks into a clean environment without ever seeing us.</p>
+      <p style="font-weight:500; color:var(--charcoal); margin-bottom:10px;">Our standard office process includes:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:16px;">
+        <li style="padding-left:18px; position:relative;">Wiping and disinfecting all desks, keyboards, phones, and high-touch surfaces<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Sanitizing restrooms top to bottom — toilets, sinks, mirrors, and floors<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Break rooms and kitchens: appliance exteriors, counters, sinks, and microwaves<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Vacuuming all carpeted areas and sweeping or mopping hard floors<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Emptying all trash and replacing liners<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Glass doors, partitions, and lobby areas polished<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+      </ul>
+      <p>We can also add periodic deep cleans, carpet cleaning, or window washing to your contract on a rotating basis.</p>`
+  },
+  medical: {
+    label: 'Medical & Dental',
+    title: 'How We Clean Healthcare Spaces',
+    body: `<p style="margin-bottom:16px;">Healthcare environments demand a higher standard — and we deliver it. Our medical cleaning team follows strict protocols using EPA-registered, hospital-grade disinfectants on all patient-contact and high-risk surfaces.</p>
+      <p style="font-weight:500; color:var(--charcoal); margin-bottom:10px;">Our medical cleaning process covers:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:16px;">
+        <li style="padding-left:18px; position:relative;">Exam tables, chairs, and equipment wiped with disinfectant between sessions<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Waiting areas sanitized including armrests, reading material racks, and check-in counters<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Restrooms cleaned and restocked with hospital-grade soap and paper products<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Biohazard waste handled and disposed of per OSHA and local health regulations<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Floors mopped with disinfectant solution, paying special attention to corners and baseboards<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+      </ul>
+      <p>We understand the sensitivity of your environment and train our team accordingly. All staff sign confidentiality agreements and follow HIPAA-aware conduct at all times.</p>`
+  },
+  retail: {
+    label: 'Retail & Storefronts',
+    title: 'How We Clean Retail Spaces',
+    body: `<p style="margin-bottom:16px;">First impressions matter in retail. We make sure your store looks its best every single day — before customers walk in and after they leave. We work entirely around your hours so there's zero disruption to your business.</p>
+      <p style="font-weight:500; color:var(--charcoal); margin-bottom:10px;">Our retail cleaning process includes:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:16px;">
+        <li style="padding-left:18px; position:relative;">Floors swept, mopped, or vacuumed depending on surface type<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Display shelving, product fixtures, and racks dusted and wiped<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Glass storefronts, display cases, and mirrors polished streak-free<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Fitting rooms sanitized and restocked<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Checkout counters and POS areas disinfected<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Trash removed and liners replaced<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+      </ul>
+      <p>We can also provide pre-opening cleans, event cleans, or post-holiday deep cleans as needed.</p>`
+  },
+  construction: {
+    label: 'Post-Construction',
+    title: 'How We Handle Post-Construction Cleanup',
+    body: `<p style="margin-bottom:16px;">Post-construction cleanup is one of the most demanding cleaning jobs there is. Dust penetrates everywhere — vents, cabinets, light fixtures, walls. Our team comes in after the contractors leave and gets the space truly move-in ready.</p>
+      <p style="font-weight:500; color:var(--charcoal); margin-bottom:10px;">Our post-construction process includes:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:16px;">
+        <li style="padding-left:18px; position:relative;">Construction dust removed from all surfaces, walls, ceilings, and vents<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Windows, frames, tracks, and sills cleaned of paint, tape residue, and stickers<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Hard floors scrubbed clean of grout haze, adhesive, and paint splatter<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Cabinets, counters, and fixtures wiped inside and out<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Restrooms and plumbing fixtures scrubbed and sanitized<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Debris and construction waste removed and disposed of<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+      </ul>
+      <p>We can coordinate directly with your general contractor for timing, and offer a punch-list walk-through clean once all trades are finished.</p>`
+  },
+  deep: {
+    label: 'Deep Cleaning',
+    title: 'How We Deep Clean',
+    body: `<p style="margin-bottom:16px;">A deep clean goes far beyond what routine maintenance covers. We get into every corner, behind every appliance, and above every ceiling tile — places that regular cleaning never touches. It's a full reset for your space.</p>
+      <p style="font-weight:500; color:var(--charcoal); margin-bottom:10px;">Our deep clean process includes:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:16px;">
+        <li style="padding-left:18px; position:relative;">All furniture moved and floors scrubbed underneath<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Baseboards, door frames, and window sills scrubbed<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Light fixtures, vents, and ceiling fans dusted and wiped<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Grout scrubbed in tiled areas<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Interior and exterior of kitchen appliances cleaned<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">All glass, mirrors, and stainless steel polished<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+      </ul>
+      <p>Deep cleans are recommended at least twice per year as a supplement to regular maintenance cleaning, or whenever a space needs a full reset.</p>`
+  },
+  custom: {
+    label: 'Custom Contracts',
+    title: 'How Custom Contracts Work',
+    body: `<p style="margin-bottom:16px;">Not every space fits a standard package — and that's okay. We'll sit down with you, walk the space, and build a cleaning plan from scratch around exactly what you need.</p>
+      <p style="font-weight:500; color:var(--charcoal); margin-bottom:10px;">What a custom contract can include:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:16px;">
+        <li style="padding-left:18px; position:relative;">Any combination of our services at any frequency you choose<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Custom task checklists tailored room by room<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Scheduling that works around your operation — days, evenings, or weekends<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Single location or multi-site coverage under one contract<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Transparent, itemized pricing with no hidden fees<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Dedicated point of contact for any changes or requests<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+      </ul>
+      <p>We'll provide a written proposal within 48 hours of your consultation — no pressure, no obligation.</p>`
+  }
+};
+ 
+function openSvcModal(key) {
+  const d = svcData[key];
+  document.getElementById('svc-modal-label').textContent = d.label;
+  document.getElementById('svc-modal-title').textContent = d.title;
+  document.getElementById('svc-modal-body').innerHTML = d.body;
+  document.getElementById('svc-modal-overlay').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+ 
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeAreasModal(); closeSvcModal(); }
+});
+ 
+function closeSvcModal() {
+  document.getElementById('svc-modal-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
 </script>
+ 
+<!-- Service detail modal -->
+<div id="svc-modal-overlay" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.55); align-items:center; justify-content:center; padding:20px;" onclick="if(event.target===this)closeSvcModal()">
+  <div style="background:var(--white); border-radius:8px; width:100%; max-width:600px; max-height:85vh; display:flex; flex-direction:column; overflow:hidden;">
+    <div style="display:flex; align-items:flex-start; justify-content:space-between; padding:28px 32px 20px; border-bottom:1px solid rgba(0,0,0,0.08);">
+      <div>
+        <p id="svc-modal-label" style="font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--pink); margin:0 0 6px;"></p>
+        <h3 id="svc-modal-title" style="font-family:'DM Sans',sans-serif; font-size:1.6rem; font-weight:400; color:var(--charcoal); margin:0;"></h3>
+      </div>
+      <button onclick="closeSvcModal()" style="background:none; border:1px solid rgba(0,0,0,0.12); border-radius:50%; width:36px; height:36px; cursor:pointer; font-size:18px; color:var(--gray); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-left:16px;">&times;</button>
+    </div>
+    <div id="svc-modal-body" style="overflow-y:auto; padding:28px 32px; font-size:15px; color:var(--gray); line-height:1.8; font-weight:300;"></div>
+    <div style="padding:16px 32px; border-top:1px solid rgba(0,0,0,0.08); display:flex; justify-content:flex-end;">
+      <a href="#quote" onclick="closeSvcModal()" style="background:var(--pink); color:white; padding:12px 28px; border-radius:2px; text-decoration:none; font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;">Request a Quote</a>
+    </div>
+  </div>
+</div>
+
 <!-- Areas Modal -->
 <div id="areas-modal" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.55); align-items:center; justify-content:center; padding:20px;" onclick="if(event.target===this)closeAreasModal()">
   <div style="background:var(--white); border-radius:8px; width:100%; max-width:560px; max-height:80vh; display:flex; flex-direction:column; overflow:hidden;">
