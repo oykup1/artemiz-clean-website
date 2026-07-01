@@ -461,8 +461,8 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
     <h2 class="section-title light reveal">Request Your Free Quote</h2>
     <p class="quote-sub reveal">Fill out the form below and we'll get back to you within 24 hours with a personalized quote.</p>
     <div id="qfw">
-      <form class="quote-form reveal" onsubmit="handleSubmit(event)">
-        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith" required></div>
+        <form class="quote-form reveal" name="quote" netlify>
+        <input type="hidden" name="form-name" value="quote">        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith" required></div>
         <div class="form-group"><label>Business Name</label><input type="text" placeholder="Acme Corp" required></div>
         <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@company.com" required></div>
         <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(609) 202-8540"></div>
