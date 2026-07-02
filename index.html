@@ -463,7 +463,7 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
     <div id="qfw">
       <form class="quote-form reveal" name="quote" netlify>
         <input type="hidden" name="form-name" value="quote">
-        <input type="hidden" name="subject" value="New Quote Request from {name} at {business}">
+        <input type="hidden" name="subject" value="New Quote Request (%{submissionId})">
         <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Jane Smith" required></div>
         <div class="form-group"><label>Business Name</label><input type="text" name="business" placeholder="Acme Corp" required></div>
         <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="jane@company.com" required></div>
@@ -480,7 +480,7 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
     <div id="form-success">
       <div class="si">&#10024;</div>
       <h3>We've Got Your Request!</h3>
-      <p>Thank you — we'll reach out within 24 hours with your personalized quote.</p>
+      <p>Thank you. We'll reach out within 24 hours with your personalized quote.</p>
     </div>
   </div>
 </section>
