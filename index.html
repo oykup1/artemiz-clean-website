@@ -323,13 +323,13 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
         <span class="svc-card-link">Learn more &rarr;</span>
       </div>
  
-      <div class="service-card" onclick="openSvcModal('medical')">
+      <div class="service-card" onclick="openSvcModal('residential')">
         <div class="svc-card-num">02</div>
-        <h3 class="svc-card-title">Medical &amp; Dental</h3>
+        <h3 class="svc-card-title">Residential Cleaning</h3>
         <ul class="svc-list">
-          <li>Hospital-grade disinfectants throughout</li>
-          <li>Exam rooms, waiting areas &amp; restrooms</li>
-          <li>OSHA-compliant waste handling</li>
+          <li>Kitchens, bathrooms and living areas cleaned thoroughly</li>
+          <li>One-time, weekly or bi-weekly scheduling available</li>
+          <li>Move-in and move-out cleans available</li>
         </ul>
         <span class="svc-card-link">Learn more &rarr;</span>
       </div>
@@ -468,7 +468,7 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
         <div class="form-group"><label>Business Name</label><input type="text" name="business" placeholder="Acme Corp" required></div>
         <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="jane@company.com" required></div>
         <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="(609) 202-8540"></div>
-        <div class="form-group"><label>Type of Space</label><select name="space-type" required><option value="" disabled selected>Select space type</option><option>Office / Corporate</option><option>Medical / Dental</option><option>Retail / Storefront</option><option>Post-Construction</option><option>Other</option></select></div>
+        <div class="form-group"><label>Type of Space</label><select name="space-type" required><option value="" disabled selected>Select space type</option><option>Office / Corporate</option><option>Residential</option><option>Retail / Storefront</option><option>Post-Construction</option><option>Other</option></select></div>
         <div class="form-group"><label>Approximate Square Footage</label><select name="square-footage"><option value="" disabled selected>Select size</option><option>Under 1,000 sq ft</option><option>1,000 - 3,000 sq ft</option><option>3,000 - 7,500 sq ft</option><option>7,500 - 15,000 sq ft</option><option>15,000+ sq ft</option></select></div>
         <div class="form-group"><label>Cleaning Frequency</label><select name="frequency"><option value="" disabled selected>How often?</option><option>One-time / Deep Clean</option><option>Weekly</option><option>Bi-Weekly</option><option>Monthly</option><option>Custom Schedule</option></select></div>
         <div class="form-group"><label>Service Area / City</label><input type="text" name="service-area" placeholder="e.g. Cherry Hill, NJ"></div>
@@ -493,7 +493,7 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
     </div>
     <div class="footer-col">
       <h4>Services</h4>
-      <ul><li>Office &amp; Corporate</li><li>Medical &amp; Dental</li><li>Retail &amp; Storefront</li><li>Post-Construction</li><li>Deep Cleaning</li></ul>
+      <ul><li>Office &amp; Corporate</li><li>Residential</li><li>Retail &amp; Storefront</li><li>Post-Construction</li><li>Deep Cleaning</li></ul>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
@@ -555,20 +555,21 @@ const svcData = {
         <li style="padding-left:18px; position:relative;">Glass doors, partitions, and lobby areas polished<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
       </ul>
       <p>We can also add periodic deep cleans, carpet cleaning, or window washing to your contract on a rotating basis.</p>`
-  },
-  medical: {
-    label: 'Medical & Dental',
-    title: 'How We Clean Healthcare Spaces',
-    body: `<p style="margin-bottom:16px;">Healthcare environments demand a higher standard — and we deliver it. Our medical cleaning team follows strict protocols using EPA-registered, hospital-grade disinfectants on all patient-contact and high-risk surfaces.</p>
-      <p style="font-weight:500; color:var(--charcoal); margin-bottom:10px;">Our medical cleaning process covers:</p>
+  }, 
+  residential: {
+    label: 'Residential',
+    title: 'How We Clean Homes',
+    body: `<p style="margin-bottom:16px;">We treat every home like it's our own. Whether you need a one-time deep clean or a recurring schedule, we show up on time and leave your space spotless.</p>
+      <p style="font-weight:500; color:var(--charcoal); margin-bottom:10px;">Our residential cleaning process includes:</p>
       <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:16px;">
-        <li style="padding-left:18px; position:relative;">Exam tables, chairs, and equipment wiped with disinfectant between sessions<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
-        <li style="padding-left:18px; position:relative;">Waiting areas sanitized including armrests, reading material racks, and check-in counters<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
-        <li style="padding-left:18px; position:relative;">Restrooms cleaned and restocked with hospital-grade soap and paper products<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
-        <li style="padding-left:18px; position:relative;">Biohazard waste handled and disposed of per OSHA and local health regulations<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
-        <li style="padding-left:18px; position:relative;">Floors mopped with disinfectant solution, paying special attention to corners and baseboards<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Kitchens scrubbed including counters, sinks, appliance exteriors and cabinet fronts<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Bathrooms sanitized top to bottom including toilets, tubs, showers, sinks and mirrors<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Bedrooms dusted, vacuumed and linens changed if requested<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Living areas vacuumed, mopped and surfaces wiped down<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Trash removed and replaced throughout the home<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
+        <li style="padding-left:18px; position:relative;">Move-in and move-out cleans available for a full reset<span style="position:absolute;left:0;top:10px;width:6px;height:1.5px;background:var(--pink);display:block;"></span></li>
       </ul>
-      <p>We understand the sensitivity of your environment and train our team accordingly. All staff sign confidentiality agreements and follow HIPAA-aware conduct at all times.</p>`
+      <p>We offer one-time, weekly, bi-weekly and monthly scheduling to fit your lifestyle. All products used are safe for kids and pets.</p>`
   },
   retail: {
     label: 'Retail & Storefronts',
