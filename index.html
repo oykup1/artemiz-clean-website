@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <title>Artemiz Cleaning Services | Powered by Women, Driven by Excellence</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root {
   --pink: #fe489b;
@@ -18,7 +19,7 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); overflow-x: hidden; }
+body { font-family: 'Georgia', sans-serif; background: var(--off-white); color: var(--charcoal); overflow-x: hidden; }
 
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -43,7 +44,7 @@ nav {
 @media (max-width: 800px) { .hero-logo { width: 220px; height: fit-content;} }
 @media (max-width: 480px) { .hero-logo { width: 170px; margin-bottom: 10%;} }
 @media (max-width: 430px) { .hero-logo {width: 140px; margin-bottom:5% ;}  }
-.hero-tagline { font-family: 'DM Sans', sans-serif; font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 300; color: var(--charcoal); line-height: 1.2; margin-bottom: 20px; }
+.hero-tagline { font-family: 'Georgia', sans-serif; font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 300; color: var(--charcoal); line-height: 1.2; margin-bottom: 20px; }
 .hero-tagline span { color: var(--pink); font-style: italic; }
 .hero-sub { font-size: 13px; color: var(--gray); letter-spacing: 0.12em; margin-bottom: 44px; font-weight: 300; text-transform: uppercase; }
 .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
@@ -58,7 +59,7 @@ nav {
 
 section { padding: 100px 48px; }
 .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink); margin-bottom: 16px; }
-.section-title { font-family: 'DM Sans', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.2; color: var(--charcoal); }
+.section-title { font-family: 'Georgia', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.2; color: var(--charcoal); }
 
 .about-wrap { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .about-img-bg { background: var(--off-white); border: 1px solid rgba(0,0,0,0.07); border-radius: 4px; padding: 32px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; position: relative; }
@@ -91,14 +92,14 @@ section { padding: 100px 48px; }
   transform: translateY(-2px);
 }
 .svc-card-num {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Georgia', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
   color: var(--pink);
 }
 .svc-card-title {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Georgia', sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--charcoal);
@@ -144,7 +145,7 @@ section { padding: 100px 48px; }
 .why-inner { max-width: 1200px; margin: 0 auto; }
 .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-top: 64px; }
 .why-card { text-align: center; padding: 20px; }
-.why-num { font-family: 'DM Sans', sans-serif; font-size: 4rem; font-weight: 300; color: var(--pink); line-height: 1; margin-bottom: 16px; }
+.why-num { font-family: 'Georgia', sans-serif; font-size: 4rem; font-weight: 300; color: var(--pink); line-height: 1; margin-bottom: 16px; }
 .why-card h3 { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 10px; }
 .why-card p { font-size: 14px; color: var(--gray); line-height: 1.7; font-weight: 300; }
 
@@ -160,7 +161,7 @@ section { padding: 100px 48px; }
   overflow: hidden;
 }
 .service-area-map { position: relative; min-height: 520px; display: flex; }
-.service-area-map iframe { width: 100%; height: 100%; min-height: 520px; border: none; display: block; flex: 1; }
+.service-area-map #leaflet-map { width: 100%; height: 100%; min-height: 520px; border: none; display: block; flex: 1; }
 .service-area-panel {
   padding: 48px 40px;
   display: flex;
@@ -174,7 +175,7 @@ section { padding: 100px 48px; }
 .area-list-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
 .area-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
 .area-grid span { font-size: 14px; color: var(--charcoal); font-weight: 300; line-height: 1.6; }
-.area-toggle { background: none; border: none; padding: 0; font-size: 13px; color: var(--pink); cursor: pointer; font-weight: 500; margin-top: 4px; font-family: 'Inter', sans-serif; }
+.area-toggle { background: none; border: none; padding: 0; font-size: 13px; color: var(--pink); cursor: pointer; font-weight: 500; margin-top: 4px; font-family: 'Georgia', sans-serif; }
 .area-toggle:hover { color: var(--pink-deep); }
 .area-meta { display: flex; flex-direction: column; gap: 10px; padding-top: 4px; border-top: 1px solid rgba(0,0,0,0.08); }
 .area-meta-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--gray); font-weight: 300; }
@@ -191,16 +192,16 @@ section { padding: 100px 48px; }
 .form-group { display: flex; flex-direction: column; gap: 8px; }
 .form-group.full { grid-column: 1 / -1; }
 .form-group label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); }
-.form-group input, .form-group select, .form-group textarea { background: white; border: 1px solid rgba(0,0,0,0.12); border-radius: 2px; padding: 13px 15px; color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; outline: none; transition: border-color 0.2s; }
+.form-group input, .form-group select, .form-group textarea { background: white; border: 1px solid rgba(0,0,0,0.12); border-radius: 2px; padding: 13px 15px; color: var(--charcoal); font-family: 'Georgia', sans-serif; font-size: 14px; font-weight: 300; outline: none; transition: border-color 0.2s; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--pink); }
 .form-group select option { background: white; color: var(--charcoal); }
 .form-group textarea { resize: vertical; min-height: 110px; }
-.form-submit { grid-column: 1 / -1; background: var(--pink); color: white; border: none; border-radius: 2px; padding: 18px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; transition: background 0.2s, transform 0.2s; margin-top: 8px; }
+.form-submit { grid-column: 1 / -1; background: var(--pink); color: white; border: none; border-radius: 2px; padding: 18px; cursor: pointer; font-family: 'Georgia', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; transition: background 0.2s, transform 0.2s; margin-top: 8px; }
 .form-submit:hover { background: var(--pink-deep); transform: translateY(-2px); }
 .form-note { grid-column: 1 / -1; text-align: center; font-size: 12px; color: var(--gray); letter-spacing: 0.06em; }
 #form-success { display: none; text-align: center; padding: 48px 0; }
 #form-success .si { font-size: 48px; margin-bottom: 16px; }
-#form-success h3 { font-family: 'DM Sans', sans-serif; font-size: 2rem; color: var(--charcoal); margin-bottom: 12px; }
+#form-success h3 { font-family: 'Georgia', sans-serif; font-size: 2rem; color: var(--charcoal); margin-bottom: 12px; }
 #form-success p { color: var(--gray); font-size: 15px; }
 
 footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px solid rgba(255,61,139,0.2); }
@@ -232,7 +233,7 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
   .badge-strip { gap: 20px; padding: 16px 20px; }
   .service-area-grid { grid-template-columns: 1fr; }
   .service-area-map { min-height: 300px; }
-  .service-area-map iframe { min-height: 300px; }
+  .service-area-map #leaflet-map { min-height: 300px; }
   .service-area-panel { border-left: none; border-top: 1px solid rgba(0,0,0,0.09); padding: 32px 20px; }
 }
 </style>
@@ -407,13 +408,7 @@ footer { background: var(--white); padding: 64px 48px 40px; border-top: 1px soli
 
         <!-- Map -->
         <div class="service-area-map">
-          <iframe
-            src="https://www.google.com/maps/d/u/0/embed?mid=14ELaZHkx-uLRiNAM4ctHJX0x0onH9H0&ehbc=2E312F&noprof=1"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Artemiz service area map"
-          ></iframe>
+          <div id="leaflet-map" style="width:100%; height:100%; min-height:520px; z-index:1;"></div>
         </div>
 
         <!-- Info panel -->
@@ -661,7 +656,7 @@ function closeSvcModal() {
     <div style="display:flex; align-items:flex-start; justify-content:space-between; padding:28px 32px 20px; border-bottom:1px solid rgba(0,0,0,0.08);">
       <div>
         <p id="svc-modal-label" style="font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--pink); margin:0 0 6px;"></p>
-        <h3 id="svc-modal-title" style="font-family:'DM Sans',sans-serif; font-size:1.6rem; font-weight:400; color:var(--charcoal); margin:0;"></h3>
+        <h3 id="svc-modal-title" style="font-family:'Georgia',sans-serif; font-size:1.6rem; font-weight:400; color:var(--charcoal); margin:0;"></h3>
       </div>
       <button onclick="closeSvcModal()" style="background:none; border:1px solid rgba(0,0,0,0.12); border-radius:50%; width:36px; height:36px; cursor:pointer; font-size:18px; color:var(--gray); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-left:16px;">&times;</button>
     </div>
@@ -679,7 +674,7 @@ function closeSvcModal() {
     <div style="display:flex; align-items:center; justify-content:space-between; padding:24px 28px 20px; border-bottom:1px solid rgba(0,0,0,0.08);">
       <div>
         <p style="font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--pink); margin:0 0 4px;">Where we clean</p>
-        <h3 style="font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:400; color:var(--charcoal); margin:0;">All Areas We Serve</h3>
+        <h3 style="font-family:'Georgia',sans-serif; font-size:1.4rem; font-weight:400; color:var(--charcoal); margin:0;">All Areas We Serve</h3>
       </div>
       <button onclick="closeAreasModal()" style="background:none; border:1px solid rgba(0,0,0,0.12); border-radius:50%; width:36px; height:36px; cursor:pointer; font-size:18px; color:var(--gray); display:flex; align-items:center; justify-content:center; line-height:1;">&times;</button>
     </div>
@@ -755,6 +750,41 @@ function closeSvcModal() {
     </div>
   </div>
 </div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var map = L.map('leaflet-map', {
+    scrollWheelZoom: false,
+    zoomControl: true
+  }).setView([39.90, -75.15], 9);
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap &copy; CARTO',
+    maxZoom: 18
+  }).addTo(map);
+
+  var serviceArea = L.polygon([
+    [40.12, -75.35],
+    [40.13, -75.10],
+    [40.22, -74.94],
+    [40.10, -74.75],
+    [39.95, -74.75],
+    [39.75, -74.80],
+    [39.55, -75.10],
+    [39.55, -75.45],
+    [39.72, -75.42],
+    [39.88, -75.40],
+    [40.02, -75.42]
+  ], {
+    color: '#fe489b',
+    weight: 2,
+    fillColor: '#fe489b',
+    fillOpacity: 0.18
+  }).addTo(map);
+
+  map.fitBounds(serviceArea.getBounds(), { padding: [20, 20] });
+});
+</script>
 
 </body>
 </html>
